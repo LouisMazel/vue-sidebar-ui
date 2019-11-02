@@ -3,22 +3,22 @@
     <h1>
       Component:
     </h1>
-    <VueCtkDateTimePicker
-      v-model="date"
+    <VueSidebarUi
+      v-model="open"
     />
   </div>
 </template>
 
 <script>
-  import VueCtkDateTimePicker from './../VueCtkDateTimePicker'
+  import VueSidebarUi from './../VueSidebarUi'
 
   export default {
     components: {
-      VueCtkDateTimePicker
+      VueSidebarUi
     },
     data () {
       return {
-        date: null
+        open: false
       }
     }
   }

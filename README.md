@@ -1,10 +1,8 @@
 <!-- ![vue-sidebar-ui](./assets/logo_sticky.png) -->
 
-# VueCtkDateTimePicker
+# VueSidebarUi
 
 > A vue component for select dates (range mode available) & time
-
-[![Build Status](https://circleci.com/gh/chronotruck/vue-sidebar-ui/tree/master.svg?style=shield)](https://circleci.com/gh/chronotruck/vue-sidebar-ui/tree/master)
 
 This documentation is for v2.\*. Find v1 documentation [here](./assets/doc-v1.md)
 
@@ -16,7 +14,7 @@ This documentation is for v2.\*. Find v1 documentation [here](./assets/doc-v1.md
 
 # Demo
 
-[Enjoy](https://chronotruck.github.io/vue-sidebar-ui/)
+[Enjoy](https://louismazel.github.io/vue-sidebar-ui/)
 
 # Installation
 
@@ -37,14 +35,14 @@ npm i --save vue-sidebar-ui
 ## ES6 Modules / CommonJS
 
 ```js
-import VueCtkDateTimePicker from 'vue-sidebar-ui';
+import VueSidebarUi from 'vue-sidebar-ui';
 import 'vue-sidebar-ui/dist/vue-sidebar-ui.css';
 
-Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
+Vue.component('VueSidebarUi', VueSidebarUi);
 ```
 
 ```html
-<VueCtkDateTimePicker v-model="yourValue" />
+<VueSidebarUi v-model="yourValue" />
 ```
 
 ## UMD
@@ -57,7 +55,7 @@ Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
 />
 
 <div id="app">
-  <VueCtkDateTimePicker v-model="yourValue"></VueCtkDateTimePicker>
+  <VueSidebarUi v-model="yourValue"></VueSidebarUi>
 </div>
 
 <script src="https://unpkg.com/vue" charset="utf-8"></script>
@@ -72,7 +70,7 @@ Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
     el: '#app',
     data() {
       return {
-        yourValue: null
+        yourValue: false
       };
     }
   });
@@ -84,13 +82,13 @@ Here is an example of [UMD implementation](https://codepen.io/louismazel/pen/jQW
 ## Use custom element to trigger the component
 
 ```html
-<VueCtkDateTimePicker :no-value-to-custom-elem="(true|false)" />
+<VueSidebarUi :no-value-to-custom-elem="(true|false)" />
   ...
   <input type="text" />
   ... or
   <button type="button">Label</button>
   ...
-</VueCtkDateTimePicker>
+</VueSidebarUi>
 ```
 
 # Props API
