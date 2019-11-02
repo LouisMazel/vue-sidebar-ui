@@ -6,16 +6,40 @@
     <VueSidebarUi
       v-model="sideBarOpen"
       :width="350"
-    />
-    <header class="text-center flex-1">
-      <h1>VueSidebarUi</h1>
-      <h3>A sidebar component for VueJS</h3>
-    </header>
+    >
+      <h3>SideBar 1</h3>
+      <p>width 350</p>
+    </VueSidebarUi>
+    <div class="main flex flex-1 flex-direction-column">
+      <header class="text-center">
+        <h1>VueSidebarUi</h1>
+        <h2>A sidebar component for VueJS</h2>
+      </header>
+      <div class="container">
+        <button
+          class="btn"
+          style="margin-right: 10px;"
+          @click="sideBarOpen = !sideBarOpen"
+        >
+          Toggle Sidebar 1
+        </button>
+        <button
+          class="btn btn-danger"
+          @click="sideBarOpen2 = !sideBarOpen2"
+        >
+          Toggle Sidebar 2
+        </button>
+      </div>
+    </div>
     <VueSidebarUi
-      v-model="sideBarOpen"
+      v-model="sideBarOpen2"
       :width="350"
       right
-    />
+      absolute
+    >
+      <h3>SideBar 2</h3>
+      <p>Absolute (above the main content)</p>
+    </VueSidebarUi>
   </div>
 </template>
 
@@ -29,7 +53,8 @@
     },
     data () {
       return {
-        sideBarOpen: false
+        sideBarOpen: true,
+        sideBarOpen2: false
       }
     }
   }
@@ -38,4 +63,9 @@
 <style lang="scss">
   @import './assets/scss/main.scss';
   @import 'style-helpers';
+  #app {
+    .main {
+      background-color: #F2F2F2;
+    }
+  }
 </style>

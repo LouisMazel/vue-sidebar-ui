@@ -41,7 +41,7 @@
         <img
           v-else
           :src="btnSvg"
-        />
+        >
       </button>
     </div>
     <div
@@ -210,7 +210,7 @@
     &.absolute {
       left: 0;
       position: absolute;
-      height: calc(100vh - 75px);
+      height: 100vh;
       max-width: 90%;
     }
 
