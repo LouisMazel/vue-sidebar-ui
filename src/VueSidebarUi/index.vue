@@ -31,17 +31,18 @@
       class="close-btn-container"
     >
       <button
-        class="flex align-center"
+        class="flex align-center justify-content-center"
         @click="isOpen = !isOpen"
       >
         <i
           v-if="closeBtnIconClass"
           :class="closeBtnIconClass"
         />
-        <img
+        <span
           v-else
-          :src="btnSvg"
         >
+          {{ btnArrow }}
+        </span>
       </button>
     </div>
     <div
@@ -58,8 +59,8 @@
 <script>
   import 'style-helpers'
   import Loader from './_subs/Loader'
-  import chevronRightSvg from './assets/chevron_right.svg'
-  import chevronLeftSvg from './assets/chevron_left.svg'
+  // import chevronRightSvg from './assets/chevron_right.svg'
+  // import chevronLeftSvg from './assets/chevron_left.svg'
 
   /**
    * Generic component used to show a togglable sidebar (left or right) in the layout
@@ -118,14 +119,14 @@
         get () {
           return this.value
         },
-        set (open) {
-          this.$emit('input', open)
+        set (value) {
+          this.$emit('input', value)
         }
       },
-      btnSvg () {
+      btnArrow () {
         return this.isOpen
-          ? this.right ? chevronRightSvg : chevronLeftSvg
-          : this.right ? chevronLeftSvg : chevronRightSvg
+          ? this.right ? '►' : '◀'
+          : this.right ? '◀' : '►'
       }
     }
   }

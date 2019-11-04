@@ -1,6 +1,6 @@
 {
   "name": "vue-sidebar-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A side bar component for Vue JS",
   "author": "Louis Mazel <mazuel.loic@gmail.com>",
   "scripts": {
