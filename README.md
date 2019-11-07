@@ -2,6 +2,8 @@
 
 > A Sidebar UI component
 
+![demo-gif](./public/illu-animated.gif)
+
 ## Demo
 
 [Enjoy](https://louismazel.github.io/vue-sidebar-ui/)
