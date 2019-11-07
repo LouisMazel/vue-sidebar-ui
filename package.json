@@ -1,10 +1,10 @@
 {
   "name": "vue-sidebar-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A side bar component for Vue JS",
   "author": "Louis Mazel <mazuel.loic@gmail.com>",
   "scripts": {
-    "serve": "vue-cli-service serve --mode development",
+    "serve": "vue-cli-service serve --mode development --open",
     "serve:nuxt": "nuxt src",
     "build": "npm run build:lib && npm run build:docs && npm run delete:reports",
     "test": "vue-cli-service test:unit /test/specs",
@@ -24,9 +24,9 @@
     "delete:reports": "npm run delete-docs-report && npm run delete-dist-report"
   },
   "dependencies": {
+    "style-helpers": "^0.2.8",
     "v-click-outside": "^2.0.2",
-    "vue": "^2.6.10",
-    "style-helpers": "^0.2.3"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.0.0",
