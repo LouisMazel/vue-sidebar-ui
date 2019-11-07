@@ -28,8 +28,8 @@
       transform-origin: 32px 32px;
     }
 
-    .custom-loader-anim div:after {
-      content: " ";
+    .custom-loader-anim div::after {
+      content: ' ';
       display: block;
       position: absolute;
       width: 6px;
@@ -43,7 +43,7 @@
       animation-delay: -0.036s;
     }
 
-    .custom-loader-anim div:nth-child(1):after {
+    .custom-loader-anim div:nth-child(1)::after {
       top: 50px;
       left: 50px;
     }
@@ -52,7 +52,7 @@
       animation-delay: -0.072s;
     }
 
-    .custom-loader-anim div:nth-child(2):after {
+    .custom-loader-anim div:nth-child(2)::after {
       top: 54px;
       left: 45px;
     }
@@ -61,7 +61,7 @@
       animation-delay: -0.108s;
     }
 
-    .custom-loader-anim div:nth-child(3):after {
+    .custom-loader-anim div:nth-child(3)::after {
       top: 57px;
       left: 39px;
     }
@@ -70,7 +70,7 @@
       animation-delay: -0.144s;
     }
 
-    .custom-loader-anim div:nth-child(4):after {
+    .custom-loader-anim div:nth-child(4)::after {
       top: 58px;
       left: 32px;
     }
@@ -79,7 +79,7 @@
       animation-delay: -0.18s;
     }
 
-    .custom-loader-anim div:nth-child(5):after {
+    .custom-loader-anim div:nth-child(5)::after {
       top: 57px;
       left: 25px;
     }
@@ -88,7 +88,7 @@
       animation-delay: -0.216s;
     }
 
-    .custom-loader-anim div:nth-child(6):after {
+    .custom-loader-anim div:nth-child(6)::after {
       top: 54px;
       left: 19px;
     }
@@ -97,7 +97,7 @@
       animation-delay: -0.252s;
     }
 
-    .custom-loader-anim div:nth-child(7):after {
+    .custom-loader-anim div:nth-child(7)::after {
       top: 50px;
       left: 14px;
     }
@@ -106,7 +106,7 @@
       animation-delay: -0.288s;
     }
 
-    .custom-loader-anim div:nth-child(8):after {
+    .custom-loader-anim div:nth-child(8)::after {
       top: 45px;
       left: 10px;
     }
@@ -115,6 +115,7 @@
       0% {
         transform: rotate(0deg);
       }
+
       100% {
         transform: rotate(360deg);
       }

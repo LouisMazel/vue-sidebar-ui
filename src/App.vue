@@ -107,6 +107,7 @@
 <style lang="scss" scoped>
   @import 'style-helpers';
   @import './assets/scss/main.scss';
+
   #app {
     .main {
       background-color: #F2F2F2;

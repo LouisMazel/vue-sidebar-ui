@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700|Material+Icons');
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html,
 body,
 #app {
-  font: 400 16px Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font: 400 16px Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   line-height: 1.5;
   font-kerning: normal;
   max-height: 100vh;
