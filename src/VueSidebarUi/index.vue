@@ -1,6 +1,6 @@
 <template>
   <div
-    id="VueSidebarUi"
+    :id="id"
     ref="VueSidebarUi"
     :style="
       'width:' + (isOpen ? (Number.isInteger(width) ? width + 'px;' : width) : '0px;') +
@@ -8,10 +8,10 @@
         'flex: 0 0 ' + (isOpen ? width + 'px;' : '0px;')
     "
     :class="{
-      'hide-sidebar': !isOpen,
-      'absolute': absolute,
-      'with-shadow': !withoutShadow,
-      'right': right
+      'is-close': !isOpen,
+      'is-absolute': absolute,
+      'has-shadow': !withoutShadow,
+      'is-right': right
     }"
     class="flex"
   >
@@ -34,31 +34,27 @@
         class="flex align-center justify-content-center"
         @click="isOpen = !isOpen"
       >
-        <i
-          v-if="closeBtnIconClass"
-          :class="closeBtnIconClass"
-        />
-        <span
-          v-else
-        >
-          {{ btnArrow }}
-        </span>
+        <slot name="button-icon">
+          <span>
+            {{ btnArrow }}
+          </span>
+        </slot>
       </button>
     </div>
     <div
-      v-show="loader"
+      v-show="loader && isOpen"
       class="load-layer flex align-center justify-content-center"
     >
-      <Loader
-        :size="60"
-      />
+      <slot name="content-loader">
+        <CustomLoader />
+      </slot>
     </div>
   </div>
 </template>
 
 <script>
   import 'style-helpers'
-  import Loader from './_subs/Loader'
+  import CustomLoader from './_subs/CustomLoader'
   // import chevronRightSvg from './assets/chevron_right.svg'
   // import chevronLeftSvg from './assets/chevron_left.svg'
 
@@ -72,47 +68,22 @@
    * @param {boolean} [absolute=false] - Specify if the sidebar should be positionned in an absolute way.
    * @param {boolean} [isOpen=false] - Is the sidebar open or not
    * @param {boolean} [right=false] - Specify the sidebar direction, by default the sidebar is positionned in the left side.
-   * @param {string} closeBtnIconClass - The icon used in the toggle button
    * @emits toggle-menu
    */
   export default {
     name: 'VueSidebarUi',
     components: {
-      Loader
+      CustomLoader
     },
     props: {
-      loader: {
-        type: Boolean,
-        default: false
-      },
-      width: {
-        type: Number,
-        required: true
-      },
-      withoutCloseBtn: {
-        type: Boolean,
-        default: false
-      },
-      withoutShadow: {
-        type: Boolean,
-        default: false
-      },
-      absolute: {
-        type: Boolean,
-        default: false
-      },
-      value: {
-        type: Boolean,
-        required: true
-      },
-      right: {
-        type: Boolean,
-        default: false
-      },
-      closeBtnIconClass: {
-        type: String,
-        default: null
-      }
+      value: { type: Boolean, required: true },
+      id: { type: String, default: 'VueSidebarUi' },
+      loader: { type: Boolean, default: false },
+      width: { type: Number, default: 350 },
+      withoutCloseBtn: { type: Boolean, default: false },
+      withoutShadow: { type: Boolean, default: false },
+      absolute: { type: Boolean, default: false },
+      right: { type: Boolean, default: false }
     },
     computed: {
       isOpen: {
@@ -140,25 +111,19 @@
     transform: translateX(0);
     z-index: 9;
 
-    // @media only screen and (max-width: $breakpoint-laptop-s) {
-    //   position: absolute !important;
-    //   height: calc(100vh - 55px) !important;
-    //   left: 0;
-    // }
-
-    &.with-shadow {
+    &.has-shadow {
       box-shadow: 2px 1px 8px rgba(0, 0, 0, 0.2);
 
-      &.right {
+      &.is-right {
         box-shadow: -2px -1px 8px rgba(0, 0, 0, 0.2);
       }
     }
 
-    &.hide-sidebar {
+    &.is-close {
       box-shadow: none !important;
       transform: translateX(-100%);
 
-      &.right {
+      &.is-right {
         transform: translateX(100%);
       }
     }
@@ -178,15 +143,10 @@
         border: none;
         border-left: 1px solid #CCC;
         padding: 0;
-
-        i {
-          color: #80807E;
-          font-size: 20px;
-        }
       }
     }
 
-    &.right {
+    &.is-right {
       .close-btn-container {
         right: 100%;
         left: inherit;
@@ -199,7 +159,7 @@
     }
 
     .load-layer {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.2);
       position: absolute;
       top: 0;
       right: 0;
@@ -208,14 +168,14 @@
       z-index: 10;
     }
 
-    &.absolute {
+    &.is-absolute {
       left: 0;
       position: absolute;
       height: 100vh;
       max-width: 90%;
     }
 
-    &.right.absolute {
+    &.is-right.is-absolute {
       right: 0;
       left: inherit;
     }
